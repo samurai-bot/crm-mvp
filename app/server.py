@@ -675,11 +675,18 @@ class CRMHandler(BaseHTTPRequestHandler):
 
 
 def run(host='127.0.0.1', port=8000):
+    # Allow cloud hosts like Render/Railway to set host/port via env
+    host = os.getenv('HOST', host)
+    try:
+        port = int(os.getenv('PORT', str(port)))
+    except ValueError:
+        port = port
     init_db()
     seed_if_empty()
     httpd = HTTPServer((host, port), CRMHandler)
     print(f'CRM server running on http://{host}:{port}')
-    print('Open the app at http://127.0.0.1:8000/')
+    if host in ('127.0.0.1', 'localhost'):
+        print('Open the app at http://127.0.0.1:8000/')
     httpd.serve_forever()
 
 
