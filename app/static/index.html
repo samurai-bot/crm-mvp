@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telecom CRM</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="icon" href="data:," />
+  <script defer src="/static/app.js"></script>
+  <style>
+    /* Ensure quick render if CSS fails to load */
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin:0; }
+  </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">Telecom CRM</div>
+      <nav>
+        <button data-view="dashboard" class="active">Dashboard</button>
+        <button data-view="customers">Customers</button>
+        <button data-view="products">Products</button>
+        <button data-view="orders">Orders</button>
+        <button data-view="cases">Cases</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="content"></section>
+    </main>
+
+    <footer>
+      <small>SQLite-backed demo CRM • No external deps</small>
+    </footer>
+  </body>
+  </html>
+
